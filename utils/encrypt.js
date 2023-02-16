@@ -1,8 +1,8 @@
-const crypto = require("crypto");
-const fs = require("fs");
+import crypto from "crypto";
+import fs from "fs";
 const algorithm = "aes-256-cbc";
 
-async function encryptFile(filePath, password) {
+export async function encryptFile(filePath, password) {
   const key = crypto
     .createHash("sha256")
     .update(String(password))
@@ -24,7 +24,7 @@ async function encryptFile(filePath, password) {
   return encryptedFilePath;
 }
 
-async function encryptFolder(folderPath, password) {
+export async function encryptFolder(folderPath, password) {
   const files = await fs.promises.readdir(folderPath);
   const encryptedFiles = [];
   for (const file of files) {
@@ -38,4 +38,4 @@ async function encryptFolder(folderPath, password) {
   return encryptedFiles;
 }
 
-module.exports = { encryptFile, encryptFolder };
+// module.exports = { encryptFile, encryptFolder };

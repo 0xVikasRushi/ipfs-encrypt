@@ -1,5 +1,9 @@
-const { encryptFolder } = require("./utils/encrypt");
-const { decryptFolder } = require("./utils/decrypt");
+import { encryptFolder } from "/utils/encrypt.js";
+import { decryptFolder } from "./utils/decrypt";
+import { uploadToIpfs } from "/utils/uploadipfs.js";
 
-// encryptFolder("./test", "vikas");
-// decryptFolder('./test',"vikas")
+async function uploadEncrptionIpfs(token, folderPath, password) {
+  await encryptFolder(folderPath, password);
+  const cid = await uploadToIpfs(token, folderPath);
+  console.log("new new new new " + cid);
+}

@@ -1,29 +1,21 @@
-import { Web3Storage } from 'web3.storage'
-import { File } from 'web3.storage'
-function getAccessToken () {
-  return process.env.TOKEN;
+import { Web3Storage, getFilesFromPath } from "web3.storage";
+
+export async function uploadToIpfs(token, folderLocation) {
+  if (!token) {
+    throw new Error(
+      "A token is needed. You can create one on https://web3.storage"
+    );
+  }
+
+  if (!folderLocation) {
+    throw new Error("Please supply the path to a file or directory");
+  }
+
+  const storage = new Web3Storage({ token });
+  const files = await getFilesFromPath(folderLocation);
+
+  console.log(`Uploading ${files.length} files`);
+  const cid = await storage.put(files);
+  console.log("Content added with CID:", cid);
+  return cid
 }
-
-function makeStorageClient () {
-  return new Web3Storage({ token: getAccessToken() })
-} 
-
-
-
-async function getFiles (path) {
-  const files = await getFilesFromPath(path)
-  console.log(`read ${files.length} file(s) from ${path}`)
-  return files
-}
-
-function makeFileObjects () {
-  const obj = { hello: 'world' }
-  const buffer = Buffer.from(JSON.stringify(obj))
-
-  const files = [
-    new File(['contents-of-file-1'], 'plain-utf8.txt'),
-    new File([buffer], 'hello.json')
-  ]
-  return files
-}
-// storeFiles('/test/new.js').then(()=>{console.log("working")})

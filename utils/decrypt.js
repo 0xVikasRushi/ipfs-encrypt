@@ -1,8 +1,8 @@
-const crypto = require("crypto");
-const fs = require("fs");
-const algorithm = "aes-256-cbc"; //Using AES encryption
+import crypto from "crypto";
+import fs from "fs";
+const algorithm = "aes-256-cbc";
 
-async function decryptFile(encryptedFilePath, password) {
+export async function decryptFile(encryptedFilePath, password) {
   const key = crypto
     .createHash("sha256")
     .update(String(password))
@@ -28,7 +28,7 @@ async function decryptFile(encryptedFilePath, password) {
 }
 
 // Decrypting all files in a folder
-async function decryptFolder(folderPath, password) {
+export async function decryptFolder(folderPath, password) {
   const files = await fs.promises.readdir(folderPath);
   const decryptedFiles = [];
   for (const file of files) {
@@ -42,4 +42,3 @@ async function decryptFolder(folderPath, password) {
   return decryptedFiles;
 }
 
-module.exports = { decryptFile, decryptFolder };
