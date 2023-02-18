@@ -1,6 +1,7 @@
 import crypto from "crypto";
-import fs from "fs";
 const algorithm = "aes-256-cbc";
+import fs from "fs";
+import path from "path";
 
 export async function encryptFile(filePath, password) {
   const key = crypto
@@ -10,11 +11,9 @@ export async function encryptFile(filePath, password) {
     .substring(0, 32);
   const data = await fs.promises.readFile(filePath);
   const iv = crypto.randomBytes(16);
-
   let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
   let encrypted = cipher.update(data);
   encrypted = Buffer.concat([encrypted, cipher.final()]);
-
   const encryptedFilePath = filePath + ".encrypted";
   await fs.promises.writeFile(
     encryptedFilePath,
@@ -26,16 +25,29 @@ export async function encryptFile(filePath, password) {
 
 export async function encryptFolder(folderPath, password) {
   const files = await fs.promises.readdir(folderPath);
-  const encryptedFiles = [];
+  const encryptedFiles =  [];
+  
   for (const file of files) {
-    const filePath = folderPath + "/" + file;
+    const filePath = path.join(folderPath, file);
     const stats = await fs.promises.stat(filePath);
-    if (stats.isFile()) {
+
+    if (stats.isDirectory()) {
+      const nestedEncryptedFiles = await encryptFolder(filePath, password);
+      encryptedFiles.push(...nestedEncryptedFiles);
+    } else if (stats.isFile()) {
+      console.log(filePath);
       const encryptedFilePath = await encryptFile(filePath, password);
       encryptedFiles.push(encryptedFilePath);
     }
   }
+  console.log(encryptedFiles);
   return encryptedFiles;
 }
-
-// module.exports = { encryptFile, encryptFolder };
+// encryptFolder("/Users/vikasrushi/main-ipfs-pkg/ipfs-encrypt/new", "vikas")
+//   .then((encryptedFiles) => {
+//     console.log(`Encrypted ${encryptedFiles.length} files:`);
+//     console.log(encryptedFiles);
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });

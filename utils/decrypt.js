@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import fs from "fs";
+import path from "path";
 const algorithm = "aes-256-cbc";
 
 export async function decryptFile(encryptedFilePath, password) {
@@ -31,14 +32,20 @@ export async function decryptFile(encryptedFilePath, password) {
 export async function decryptFolder(folderPath, password) {
   const files = await fs.promises.readdir(folderPath);
   const decryptedFiles = [];
+
   for (const file of files) {
-    const filePath = folderPath + "/" + file;
+    const filePath = path.join(folderPath, file);
     const stats = await fs.promises.stat(filePath);
-    if (stats.isFile() && file.endsWith(".encrypted")) {
+
+    if (stats.isDirectory()) {
+      const nestedDecryptedFiles = await decryptFolder(filePath, password);
+      decryptedFiles.push(...nestedDecryptedFiles);
+    } else if (stats.isFile() && file.endsWith(".encrypted")) {
       const decryptedFilePath = await decryptFile(filePath, password);
       decryptedFiles.push(decryptedFilePath);
     }
   }
+
   return decryptedFiles;
 }
-
+// decryptFolder("/Users/vikasrushi/main-ipfs-pkg/ipfs-encrypt/new", "vikas");
