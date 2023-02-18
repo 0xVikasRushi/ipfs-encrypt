@@ -1,7 +1,7 @@
 import { Web3Storage, getFilesFromPath } from "web3.storage";
 
-export async function uploadToIpfs(token, folderLocation) {
-  if (!token) {
+export async function uploadToIpfs(Web3Storagetoken, folderLocation) {
+  if (!Web3Storagetoken) {
     throw new Error(
       "A token is needed. You can create one on https://web3.storage"
     );
@@ -17,5 +17,5 @@ export async function uploadToIpfs(token, folderLocation) {
   console.log(`Uploading ${files.length} files`);
   const cid = await storage.put(files);
   console.log("Content added with CID:", cid);
-  return cid
+  return cid;
 }
