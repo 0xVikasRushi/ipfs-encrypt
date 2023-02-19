@@ -25,7 +25,6 @@
   "homepage": "https://github.com/0xVikasRushi/ipfs-encrypt#readme",
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "minimist": "^1.2.8",
     "web3.storage": "^4.4.0"
   }
 }
