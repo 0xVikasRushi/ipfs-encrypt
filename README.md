@@ -1,5 +1,6 @@
 
 # IPFS-Encrypt
+
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/0xVikasRushi/ipfs-encrypt?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/0xVikasRushi/ipfs-encrypt)
 ![GitHub issues](https://img.shields.io/github/issues-raw/0xVikasRushi/ipfs-encrypt)
@@ -157,4 +158,18 @@ decryptFolder(folderPath, password)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Contributors
+<div style="display: flex;">
+ 
+<a href="https://github.com/0xvikasrushi">
+    <img src="https://github.com/0xvikasrushi.png" width="100" height="100"/>
+  </a>
+  
+  <a href="https://github.com/c-shubh">
+    <img src="https://github.com/c-shubh.png" width="100" height="100"/>
+  </a>
+
+  
+</div>
 
