@@ -1,7 +1,7 @@
 {
-  "name": "ipfs-package",
+  "name": "ipfs-encryption",
   "version": "1.0.0",
-  "description": "",
+  "description": "ipfs files encryption",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -17,7 +17,7 @@
     "ipfs-js",
     "web3storage"
   ],
-  "author": "0xVikasRushi",
+  "author": "Vikas Rushi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/0xVikasRushi/ipfs-encrypt/issues"
