@@ -1,30 +1,36 @@
 
+# IPFS-Encrypt
 
+IPFS-Encrypt is an npm package that provides two functions for encrypting and decrypting files stored on IPFS.
 
-# Ipfs-encrypt
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/0xVikasRushi/ipfs-encrypt?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/0xVikasRushi/ipfs-encrypt)
 ![GitHub issues](https://img.shields.io/github/issues-raw/0xVikasRushi/ipfs-encrypt)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/0xVikasRushi/ipfs-encrypt)
 ![GitHub](https://img.shields.io/github/license/0xVikasRushi/ipfs-encrypt)<br>
 
-A Node.js module for uploading and downloading encrypted folders to/from IPFS using AES-256-CBC encryption.
-
 ## Installation
 
-```sh
+You can install IPFS-Encrypt using npm:
+
+```
 npm install ipfs-encrypt
 ```
+## Requirements
+
+To use `ipfs-encrypt`, you need the following:
+
+- A [Web3 Storage](https://web3.storage/) account and an API token with sufficient permissions to write to IPFS.
+
 
 ## Usage
 
-- [`uploadEncryptionIpfs(Web3Storagetoken, folderPath, password)`](#uploadEncryptionIpfs)
-- [`decryptFolderIpfs(Web3Storagetoken, cid, password)`](#decryptFolderIpfs)
-- [`encryptFolder(folderPath, password)`](#encryptFolder)
-- [`decryptFolder(folderPath, password)`](#decryptFolder)
+* [uploadEncryptionIpfs](#uploadencryptionipfsweb3storagetoken-folderpath-password)
+* [decryptFolderIpfs](#decryptfolderipfsweb3storagetoken-cid-password)
+* [encryptFolder](#encryptfolderfolderpath-password)
+* [decryptFolder](#decryptfolderfolderpath-password)
 
----
-
+## Methods
 ### `uploadEncryptionIpfs(Web3Storagetoken, folderPath, password)`
 
 This function uploads a folder to IPFS and encrypts its contents using a password. The function takes three parameters:
@@ -64,11 +70,10 @@ decryptFolderIpfs(token, cid, password)
   .then(folderPath => console.log(`Folder decrypted and saved to ${folderPath}`))
   .catch(error => console.error(`Error: ${error.message}`));
 ```
-## Encryption and Decryption 
+
 ### `encryptFolder(folderPath, password)`
 
-This function recursively encrypts all files in a folder and its subfolders using AES-256-CBC encryption with the given password. The encrypted files are saved with a .encrypted extension. The function takes two parameters:
-
+This function encrypts the files in a folder using AES-256-CBC encryption with the given password. The function takes two parameters:
 
 - `folderPath`: The path to the folder that you want to encrypt.
 - `password`: The password to use for encryption.
@@ -86,7 +91,7 @@ encryptFolder(folderPath, password)
 
 ### `decryptFolder(folderPath, password)`
 
-This function recursively decrypts all files in a folder and its subfolders that were previously encrypted with the encryptFolder function using AES-256-CBC encryption with the given password. The decrypted files are saved with their original file extensions. The function takes two parameters:
+This function decrypts the files in a folder that were encrypted using AES-256-CBC encryption with the given password. The function takes two parameters:
 
 - `folderPath`: The path to the folder that you want to decrypt.
 - `password`: The password to use for decryption.
@@ -99,9 +104,9 @@ const password = 'my_password';
 
 decryptFolder(folderPath, password)
   .then(() => console.log(`Folder decrypted successfully`))
-  .catch(error => console.error(`Error: ${error.message}`));
-```
+  .catch(error => console
 
+```
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
