@@ -11,7 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/0xVikasRushi/ipfs-encrypt.git"
   },
-  "keywords": ["ifps","ifps-encryption","ipfs-js","web3storage"],
+  "keywords": [
+    "ifps",
+    "ifps-encryption",
+    "ipfs-js",
+    "web3storage"
+  ],
   "author": "0xVikasRushi",
   "license": "MIT",
   "bugs": {
@@ -20,7 +25,6 @@
   "homepage": "https://github.com/0xVikasRushi/ipfs-encrypt#readme",
   "dependencies": {
     "crypto-js": "^4.1.1",
-    "ipfs-core": "^0.18.0",
     "minimist": "^1.2.8",
     "web3.storage": "^4.4.0"
   }

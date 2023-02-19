@@ -48,4 +48,3 @@ export async function decryptFolder(folderPath, password) {
 
   return decryptedFiles;
 }
-// decryptFolder("/Users/vikasrushi/main-ipfs-pkg/ipfs-encrypt/new", "vikas");

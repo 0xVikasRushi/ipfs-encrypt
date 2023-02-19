@@ -43,11 +43,3 @@ export async function encryptFolder(folderPath, password) {
   console.log(encryptedFiles);
   return encryptedFiles;
 }
-// encryptFolder("/Users/vikasrushi/main-ipfs-pkg/ipfs-encrypt/new", "vikas")
-//   .then((encryptedFiles) => {
-//     console.log(`Encrypted ${encryptedFiles.length} files:`);
-//     console.log(encryptedFiles);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
