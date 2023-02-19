@@ -15,9 +15,18 @@ export async function uploadEncryptionIpfs(
   return cid;
 }
 
-export async function decryptFolderIpfs(Web3Storagetoken, cid, password) {
-  await downloadFile(Web3Storagetoken, cid);
-  const res = await decryptFolder(".", password);
+export async function decryptFolderIpfs(
+  Web3Storagetoken,
+  cid,
+  password,
+  downloadLocation
+) {
+   await downloadFile(
+    Web3Storagetoken,
+    cid,
+    downloadLocation
+  );
+  const res = await decryptFolder(downloadLocation, password);
   return res;
 }
 export {

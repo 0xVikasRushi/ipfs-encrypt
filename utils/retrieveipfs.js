@@ -2,12 +2,12 @@ import { Web3Storage } from "web3.storage";
 import fs from "fs";
 import path from "path";
 
-export async function downloadFile(Web3Storagetoken, cid) {
+export async function downloadFile(Web3Storagetoken, cid, downloadLocation) {
   const client = new Web3Storage({
     token: Web3Storagetoken,
   });
   const res = await client.get(cid);
-  const dirPath = ".";
+  const dirPath = downloadLocation;
   console.log(dirPath);
   fs.mkdirSync(dirPath, { recursive: true });
   const files = await res.files();

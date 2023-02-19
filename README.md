@@ -33,9 +33,9 @@ To use the `ipfs-encrypted` package, you need to have the following:
 ## Usage
 
 - [uploadEncryptionIpfs](#uploadencryptionipfsweb3storagetoken-folderpath-password)
-- [decryptFolderIpfs](#decryptfolderipfsweb3storagetoken-cid-password)
+- [decryptFolderIpfs](#decryptfolderipfsweb3storagetoken-cid-password-downloadlocation)
 - [uploadToIpfs](#uploadtoipfsweb3storagetoken-folderlocation)
-- [downloadFile](#downloadfileweb3storagetoken-cid)
+- [downloadFile](#downloadfileweb3storagetoken-cid-downloadlocation)
 - [encryptFolder](#encryptfolderfolderpath-password)
 - [decryptFolder](#decryptfolderfolderpath-password)
 
@@ -64,21 +64,23 @@ uploadEncryptionIpfs(token, folderPath, password)
 
 ## Download IPFS Decrypted Content
 
-### `decryptFolderIpfs(Web3Storagetoken, cid, password)`
+### `decryptFolderIpfs(Web3Storagetoken, cid, password, downloadLocation)`
 
 This function retrieves an encrypted folder from IPFS and decrypts its contents using a password. The function takes three parameters:
 
 - `Web3Storagetoken`: A Web3 Storage token used for authentication.
 - `cid`: The CID of the encrypted folder on IPFS.
 - `password`: The password to use for decryption.
+- `downloadLocation`: Path of folder that content need to downloaded
 
 ```js
 import { decryptFolderIpfs } from "ipfs-encrypted";
 const token = "my_web3_storage_token";
 const cid = "Qm1234abcd";
 const password = "my_password";
+const downloadLocation = "/path/to/folder";
 
-decryptFolderIpfs(token, cid, password)
+decryptFolderIpfs(token, cid, password, downloadLocation)
   .then((folderPath) =>
     console.log(`Folder decrypted and saved to ${folderPath}`)
   )
@@ -106,19 +108,21 @@ uploadToIpfs(token, folderLocation)
 
 ## Download IPFS content with CID
 
-### `downloadFile(Web3Storagetoken, cid)`
+### `downloadFile(Web3Storagetoken, cid, downloadLocation)`
 
 This function downloads a file from IPFS and saves it to the current directory. The function takes two parameters:
 
 - `Web3Storagetoken`: A Web3 Storage token used for authentication.
 - `cid`: The CID of the file to download from IPFS.
+- `downloadLocation`: Path of folder that content need to downloaded
 
 ```js
 import downloadFile from "ipfs-encrypted";
 const token = "my_web3_storage_token";
 const cid = "CID";
+const downloadLocation = "/path/to/folder";
 
-downloadFile(token, cid)
+downloadFile(token, cid, downloadLocation)
   .then((filePath) => console.log(`File downloaded and saved to ${filePath}`))
   .catch((error) => console.error(`Error: ${error.message}`));
 ```
@@ -161,7 +165,7 @@ decryptFolder(folderPath, password)
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/0xVikasRushi/ipfs-encrypt/blob/main/LICENSE)
 
 ## Contributors
 
