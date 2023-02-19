@@ -1,6 +1,6 @@
 {
   "name": "ipfs-encrypted",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ipfs-encrypted can encrypt, decrypt, upload, and download files securely using IPFS and AES-256-CBC encryption algorithm.",
   "main": "index.js",
   "type": "module",
