@@ -4,6 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/0xVikasRushi/ipfs-encrypt)
 ![GitHub issues](https://img.shields.io/github/issues-raw/0xVikasRushi/ipfs-encrypt)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/0xVikasRushi/ipfs-encrypt)
+![Github Stars](https://img.shields.io/github/stars/0xVikasRushi)
 ![GitHub](https://img.shields.io/github/license/0xVikasRushi/ipfs-encrypt)<br>
 
 A Node.js module for uploading and downloading encrypted folders to/from IPFS using AES-256-CBC encryption.
@@ -21,6 +22,13 @@ A Node.js module for uploading and downloading encrypted folders to/from IPFS us
 ```sh
 npm install ipfs-encrypted
 ```
+## Requirements
+
+To use the `ipfs-encrypted` package, you need to have the following:
+
+- Node.js installed on your computer. You can download it from the official [Node.js website](https://nodejs.org/en/download/).
+- A Web3 Storage token to authenticate your requests to the IPFS network. You can obtain a token by signing up for [Web3 Storage](https://web3.storage/).
+
 
 ## Usage
 
