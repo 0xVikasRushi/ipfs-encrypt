@@ -13,13 +13,13 @@ export async function downloadFile(Web3Storagetoken, cid) {
   const files = await res.files();
   for (const file of files) {
     const filePath = path.join(dirPath, file.name);
-    const arr = filePath.split("/");
+    const arr = filePath.split(path.sep);
     const content = await file.arrayBuffer();
     if (file.type === "directory") {
       fs.mkdirSync(filePath, { recursive: true });
     } else {
       arr.pop();
-      const singlePath = arr.join("/");
+      const singlePath = arr.join(path.sep);
       fs.mkdirSync(singlePath, { recursive: true });
       fs.writeFileSync(filePath, Buffer.from(content));
       console.log(`Downloaded file saved to ${filePath}`);
