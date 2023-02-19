@@ -1,7 +1,7 @@
 {
-  "name": "ipfs-encryption",
-  "version": "1.1.0",
-  "description": "ipfs files encryption",
+  "name": "ipfs-encrypt",
+  "version": "1.0.0",
+  "description": "ipfs-encrypt can encrypt, decrypt, upload, and download files securely using IPFS and AES-256-CBC encryption algorithm.",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -15,7 +15,9 @@
     "ifps",
     "ifps-encryption",
     "ipfs-js",
-    "web3storage"
+    "web3storage",
+    "aes-256-cbc",
+    "ipfs-nodejs"
   ],
   "author": "Vikas Rushi",
   "license": "MIT",
