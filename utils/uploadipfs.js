@@ -11,7 +11,7 @@ export async function uploadToIpfs(Web3Storagetoken, folderLocation) {
     throw new Error("Please supply the path to a file or directory");
   }
 
-  const storage = new Web3Storage({ token });
+  const storage = new Web3Storage({ token : Web3Storagetoken });
   const files = await getFilesFromPath(folderLocation);
 
   console.log(`Uploading ${files.length} files`);

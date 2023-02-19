@@ -7,7 +7,7 @@ export async function downloadFile(Web3Storagetoken, cid) {
     token: Web3Storagetoken,
   });
   const res = await client.get(cid);
-  const dirPath = "decryptFiles";
+  const dirPath = ".";
   console.log(dirPath);
   fs.mkdirSync(dirPath, { recursive: true });
   const files = await res.files();
