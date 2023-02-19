@@ -11,9 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/0xVikasRushi/ipfs-encrypt.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["ifps","ifps-encryption","ipfs-js","web3storage"],
+  "author": "0xVikasRushi",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/0xVikasRushi/ipfs-encrypt/issues"
   },
