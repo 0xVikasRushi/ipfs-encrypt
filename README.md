@@ -1,11 +1,11 @@
 # IPFS-Encrypt
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/0xVikasRushi/ipfs-encrypt?include_prereleases)
+[![Version](https://img.shields.io/npm/v/ipfs-encrypted)](https://www.npmjs.com/package/ipfs-encrypted)
+![GitHub](https://img.shields.io/github/license/0xVikasRushi/ipfs-encrypt)
+![Github Stars](https://img.shields.io/github/stars/0xVikasRushi/ipfs-encrypt)
 ![GitHub last commit](https://img.shields.io/github/last-commit/0xVikasRushi/ipfs-encrypt)
 ![GitHub issues](https://img.shields.io/github/issues-raw/0xVikasRushi/ipfs-encrypt)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/0xVikasRushi/ipfs-encrypt)
-![Github Stars](https://img.shields.io/github/stars/0xVikasRushi/ipfs-encrypt)
-![GitHub](https://img.shields.io/github/license/0xVikasRushi/ipfs-encrypt)<br>
+<br>
 
 A Node.js module for uploading and downloading encrypted folders to/from IPFS using AES-256-CBC encryption.
 
