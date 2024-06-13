@@ -2,6 +2,22 @@ import { Web3Storage } from "web3.storage";
 import fs from "fs";
 import path from "path";
 
+/**
+ * Downloads a file from IPFS and saves it to the specified location.
+ * @param {String} Web3Storagetoken A Web3 Storage token used for authentication.
+ * @param {String} cid The CID of the file to download from IPFS.
+ * @param {String} downloadLocation Path of folder that content need to downloaded
+ * @returns {Promise<void>}
+ * @example
+ * import downloadFile from "ipfs-encrypted";
+ * const token = "my_web3_storage_token";
+ * const cid = "CID";
+ * const downloadLocation = "/path/to/folder";
+ *
+ * downloadFile(token, cid, downloadLocation)
+ *   .then((filePath) => console.log(`File downloaded and saved to ${filePath}`))
+ *   .catch((error) => console.error(`Error: ${error.message}`));
+ */
 export async function downloadFile(Web3Storagetoken, cid, downloadLocation) {
   const client = new Web3Storage({
     token: Web3Storagetoken,
